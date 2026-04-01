@@ -4,11 +4,140 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Home - Saanvi's Website</title>
-<link rel="stylesheet" href="style.css">
+<style>
+/* --- Body & Fonts --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fffaf0, #fdf0e3);
+    color: #5b4636;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    text-align: center;
+    padding: 15px 0;
+    background: #fff5e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #5b4636;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #a65b2b;
+    text-shadow: 0 0 12px #ffb85c;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero h1 {
+    font-size: 3em;
+    margin: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+.hero p {
+    font-size: 1.5em;
+    margin: 15px 0 30px;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Floating shapes in background */
+.floating-shape {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #ffd8a6;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: float 6s ease-in-out infinite;
+}
+.floating-shape:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.floating-shape:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.floating-shape:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 4s; }
+.floating-shape:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 1s; }
+
+/* --- Buttons --- */
+.hero .btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #5b4636;
+    background: #fff8f0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, text-shadow 0.3s;
+}
+.hero .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    text-shadow: 0 0 12px #ffb85c;
+}
+
+/* --- Info Cards --- */
+.info-section {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+.info-card {
+    background: #f7f1e3;
+    border-radius: 16px;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+.info-card:hover {
+    transform: translateY(-12px) rotateX(3deg);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.25);
+}
+.info-card h3 {
+    margin-top: 0;
+}
+.info-card p {
+    margin: 10px 0 0;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px);}
+    50% { transform: translateY(-15px);}
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .info-section { flex-direction: column; align-items: center; }
+    .info-card { width: 95%; }
+    .hero h1 { font-size: 2.2em; }
+    .hero p { font-size: 1.2em; }
+}
+</style>
 </head>
 <body>
-
-<header>Welcome to Saanvi's Website</header>
 
 <nav>
     <a href="index.html">Home</a>
@@ -17,11 +146,35 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-    <h2>Home</h2>
-    <p>Welcome! Explore the tools and resources designed to help you with productivity, learning, and creativity.</p>
-    <p>Navigate through the site to discover calculators, Canva, Google Translate, ChatGPT, and much more.</p>
-</main>
+<section class="hero">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <h1>Welcome to Saanvi's World</h1>
+    <p>Explore useful tools, skills, and knowledge</p>
+    <a href="tools.html" class="btn">Explore Tools</a>
+    <a href="about.html" class="btn">About Me</a>
+</section>
+
+<section class="info-section">
+    <div class="info-card">
+        <h3>Skills</h3>
+        <p>Programming, Design, Productivity, Communication</p>
+    </div>
+    <div class="info-card">
+        <h3>Interests</h3>
+        <p>AI, Web Development, Graphic Design, Learning</p>
+    </div>
+    <div class="info-card">
+        <h3>Highlights</h3>
+        <p>Professional tools, creative projects, tutorials</p>
+    </div>
+    <div class="info-card">
+        <h3>Contact</h3>
+        <p>Reach me via email or social platforms</p>
+    </div>
+</section>
 
 </body>
 </html>
