@@ -4,11 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact - Saanvi's Website</title>
-<link rel="stylesheet" href="style.css">
+<style>
+/* --- Body & Fonts --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fffaf0, #fdf0e3);
+    color: #5b4636;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+nav {
+    text-align: center;
+    padding: 15px 0;
+    background: #fff5e0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #5b4636;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #a65b2b;
+    text-shadow: 0 0 12px #ffb85c;
+}
+
+/* --- Hero Section --- */
+.hero {
+    padding: 60px 20px 40px 20px;
+}
+.hero h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease forwards;
+}
+.hero p {
+    font-size: 1.5em;
+    margin-top: 0;
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+/* --- Floating shapes --- */
+.floating-shape {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #ffd8a6;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: float 6s ease-in-out infinite;
+}
+.floating-shape:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.floating-shape:nth-child(2) { top: 25%; right: 10%; animation-delay: 2s; }
+.floating-shape:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 4s; }
+.floating-shape:nth-child(4) { bottom: 10%; right: 5%; animation-delay: 1s; }
+
+/* --- Contact Form --- */
+.contact-section {
+    margin: 50px auto;
+    max-width: 500px;
+}
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    background: #fff8f0;
+    color: #5b4636;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-section input:focus,
+.contact-section textarea:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+/* --- Submit Button --- */
+.contact-section button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #5b4636;
+    background: #fff8f0;
+    border-radius: 12px;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s, text-shadow 0.3s;
+}
+.contact-section button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    text-shadow: 0 0 12px #ffb85c;
+}
+
+/* --- Social Links --- */
+.social-links {
+    margin-top: 40px;
+}
+.social-links a {
+    margin: 0 15px;
+    display: inline-block;
+    font-size: 2em;
+    color: #5b4636;
+    transition: transform 0.3s, color 0.3s, text-shadow 0.3s;
+    text-decoration: none;
+}
+.social-links a:hover {
+    transform: translateY(-5px) scale(1.2);
+    color: #a65b2b;
+    text-shadow: 0 0 12px #ffb85c;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0px);}
+    50% { transform: translateY(-15px);}
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .contact-section { width: 95%; }
+    .hero h1 { font-size: 2.2em; }
+    .hero p { font-size: 1.2em; }
+}
+</style>
+<!-- You can add icons from font-awesome or any library -->
 </head>
 <body>
-
-<header>Contact Saanvi</header>
 
 <nav>
     <a href="index.html">Home</a>
@@ -17,11 +154,30 @@
     <a href="contact.html">Contact</a>
 </nav>
 
-<main>
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:saanvi@example.com">saanvi@example.com</a></p>
-    <p>Follow me on social media for updates and tips!</p>
-</main>
+<section class="hero">
+    <h1>Contact Me</h1>
+    <p>I'd love to hear from you! Reach out via form or social platforms.</p>
+</section>
+
+<section class="contact-section">
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div class="social-links">
+        <a href="https://github.com/" target="_blank">🐙</a>
+        <a href="https://www.linkedin.com/" target="_blank">🔗</a>
+        <a href="mailto:example@gmail.com" target="_blank">✉️</a>
+    </div>
+</section>
+
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
+<div class="floating-shape"></div>
 
 </body>
 </html>
