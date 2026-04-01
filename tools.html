@@ -1,11 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=tools.html">
-    <title>Saanvi's Tools</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saanvi's Tools</title>
+<style>
+    /* Basic Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body {
+        font-family: 'Arial', sans-serif;
+        background: #f4f4f9;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    header {
+        background: #4CAF50;
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+    }
+
+    nav {
+        background: #333;
+        padding: 10px 0;
+        text-align: center;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+    nav a:hover { color: #4CAF50; }
+
+    main {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 0 20px;
+    }
+
+    .search-box {
+        margin: 20px 0;
+        text-align: center;
+    }
+    .search-box input {
+        width: 80%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1em;
+    }
+
+    h2 { text-align:center; margin-bottom:20px; }
+    h3 { margin-top:30px; color:#4CAF50; }
+
+    .tool-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .tool-list li {
+        background: white;
+        width: 250px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tool-list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .tool-list li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 1.1em;
+        display: block;
+        margin-bottom: 8px;
+    }
+    .tool-list li a:hover { color: #4CAF50; }
+
+    .tool-list li p {
+        font-size: 0.9em;
+        color: #555;
+    }
+
+    @media (max-width: 600px) {
+        .tool-list { flex-direction: column; align-items: center; }
+        .tool-list li { width: 90%; }
+        .search-box input { width: 95%; }
+    }
+</style>
 </head>
 <body>
-    <p>If you are not redirected automatically, <a href="tools.html">click here to go to Tools page</a>.</p>
+
+<header>Saanvi's Tools</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+</nav>
+
+<main>
+    <h2>Explore Useful Tools</h2>
+
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
+    </div>
+
+    <h3>Productivity</h3>
+    <ul class="tool-list" id="toolList">
+        <li>🖩 <a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a>
+            <p>Quick online calculations</p>
+        </li>
+        <li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a>
+            <p>Create designs, posters, and social media graphics</p>
+        </li>
+    </ul>
+
+    <h3>Learning</h3>
+    <ul class="tool-list" id="toolListLearning">
+        <li>🌐 <a href="https://translate.google.com" target="_blank">Google Translate</a>
+            <p>Translate text between languages instantly</p>
+        </li>
+        <li>🤖 <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
+            <p>Ask questions and learn interactively</p>
+        </li>
+    </ul>
+</main>
+
+<script>
+function filterTools() {
+    let input = document.getElementById('searchInput');
+    let filter = input.value.toLowerCase();
+    let lists = [document.getElementById('toolList'), document.getElementById('toolListLearning')];
+
+    lists.forEach(list => {
+        let items = list.getElementsByTagName('li');
+        for (let i = 0; i < items.length; i++) {
+            let a = items[i].getElementsByTagName('a')[0];
+            if (a.textContent.toLowerCase().indexOf(filter) > -1) {
+                items[i].style.display = "";
+            } else {
+                items[i].style.display = "none";
+            }
+        }
+    });
+}
+</script>
+
 </body>
 </html>
