@@ -5,41 +5,171 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tools - Saanvi's Website</title>
 <style>
-body { font-family: sans-serif; background: #fffaf0; color: #5b4636; text-align: center; padding: 20px; }
-.tool-list { list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.tool-list li { background: #f7f1e3; padding: 20px; width: 220px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; }
-.tool-list li:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.2); }
-.tool-list li a { text-decoration: none; font-weight: bold; color: #5b4636; font-size: 1.1em; display: block; margin-bottom: 8px; }
-.tool-list li p { margin: 0; font-size: 0.95em; }
+/* --- Body & Header --- */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fffaf0;
+    color: #5b4636;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    overflow-x: hidden;
+}
+h1 { margin-bottom: 20px; font-size: 2.5em; }
+h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8em; }
+
+/* --- Navigation --- */
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #5b4636;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+nav a:hover { text-shadow: 0 0 8px #8b5e3c; color: #a65b2b; }
+
+/* --- Tool Cards --- */
+.tool-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.tool-list li {
+    background: #f7f1e3;
+    border-radius: 16px;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15), 0 0 15px #ffd8a6 inset;
+    transition: transform 0.5s, box-shadow 0.5s, background 0.3s;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.tool-list li:hover {
+    transform: translateY(-15px) rotateX(5deg) scale(1.05);
+    box-shadow: 0 20px 35px rgba(0,0,0,0.3), 0 0 25px #ffc37f inset;
+    background: #fff5e0;
+}
+
+/* Neon/Pastel glow on link hover */
+.tool-list li a {
+    text-decoration: none;
+    color: #5b4636;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+    transition: text-shadow 0.3s, color 0.3s;
+}
+.tool-list li a:hover {
+    text-shadow: 0 0 12px #ffb85c, 0 0 25px #ffb85c;
+    color: #a65b2b;
+}
+
+.tool-list li p {
+    margin: 0;
+    font-size: 1em;
+    color: #6b5843;
+}
+
+/* Floating animation */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+/* --- Search Box --- */
+.search-box {
+    margin: 25px 0;
+}
+.search-box input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    background: #fff8f0;
+    color: #5b4636;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.search-box input:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .tool-list { flex-direction: column; align-items: center; }
+    .tool-list li { width: 95%; }
+    .search-box input { width: 95%; }
+}
 </style>
 </head>
 <body>
 
-<h1>Saanvi's Tools</h1>
+<header>
+    <h1>Saanvi's Tools</h1>
+</header>
 
-<h2>Productivity & Learning</h2>
-<ul class="tool-list">
-<li><a href="#">Calculator</a><p>Quick online calculations</p></li>
-<li><a href="#">Notion</a><p>Notes and projects</p></li>
-</ul>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-<h2>Design & Utilities</h2>
-<ul class="tool-list">
-<li><a href="#">Canva</a><p>Design graphics and presentations</p></li>
-<li><a href="#">Figma</a><p>UI/UX design tool</p></li>
-</ul>
+<main>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
+    </div>
 
-<h2>Communication & Collaboration</h2>
-<ul class="tool-list">
-<li><a href="#">Slack</a><p>Team communication</p></li>
-<li><a href="#">Gmail</a><p>Email platform</p></li>
-</ul>
+    <!-- Section 1: Productivity & Learning -->
+    <h2>Productivity & Learning</h2>
+    <ul class="tool-list" id="section1">
+        <li><a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a><p>Quick online calculations</p></li>
+        <li><a href="https://www.notion.so" target="_blank">Notion</a><p>Notes and projects</p></li>
+    </ul>
 
-<h2>Reference & Miscellaneous</h2>
-<ul class="tool-list">
-<li><a href="#">Wikipedia</a><p>Online encyclopedia</p></li>
-<li><a href="#">Khan Academy</a><p>Learning tutorials</p></li>
-</ul>
+    <!-- Section 2: Design & Utilities -->
+    <h2>Design & Utilities</h2>
+    <ul class="tool-list" id="section2">
+        <li><a href="https://www.canva.com" target="_blank">Canva</a><p>Design graphics and presentations</p></li>
+        <li><a href="https://www.figma.com" target="_blank">Figma</a><p>UI/UX design tool</p></li>
+    </ul>
+
+    <!-- Section 3: Communication & Collaboration -->
+    <h2>Communication & Collaboration</h2>
+    <ul class="tool-list" id="section3">
+        <li><a href="https://slack.com" target="_blank">Slack</a><p>Team communication</p></li>
+        <li><a href="https://mail.google.com" target="_blank">Gmail</a><p>Email platform</p></li>
+    </ul>
+
+    <!-- Section 4: Reference & Miscellaneous -->
+    <h2>Reference & Miscellaneous</h2>
+    <ul class="tool-list" id="section4">
+        <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a><p>Online encyclopedia</p></li>
+        <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a><p>Learning tutorials</p></li>
+    </ul>
+
+</main>
+
+<script>
+function filterTools() {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    ['section1','section2','section3','section4'].forEach(id => {
+        document.getElementById(id).querySelectorAll('li').forEach(li => {
+            let name = li.querySelector('a').textContent.toLowerCase();
+            li.style.display = name.includes(input) ? '' : 'none';
+        });
+    });
+}
+</script>
 
 </body>
 </html>
