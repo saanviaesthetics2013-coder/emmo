@@ -24,32 +24,51 @@
         <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
     </div>
 
-    <h3>Productivity</h3>
-    <ul class="tool-list" id="toolList">
+    <h3>Productivity & Learning</h3>
+    <ul class="tool-list" id="toolListProductivity">
         <li>🖩 <a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a>
             <p>Quick online calculations</p>
         </li>
-        <li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a>
-            <p>Create designs, posters, and social media graphics</p>
+        <li>📓 <a href="https://www.notion.so" target="_blank">Notion</a>
+            <p>Notes, tasks, and projects</p>
+        </li>
+        <li>📋 <a href="https://trello.com" target="_blank">Trello</a>
+            <p>Organize tasks with boards & lists</p>
+        </li>
+        <li>📄 <a href="https://docs.google.com" target="_blank">Google Docs</a>
+            <p>Online word processor</p>
+        </li>
+        <li>📚 <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+            <p>Free learning tutorials</p>
         </li>
     </ul>
 
-    <h3>Learning</h3>
-    <ul class="tool-list" id="toolListLearning">
-        <li>🌐 <a href="https://translate.google.com" target="_blank">Google Translate</a>
-            <p>Translate text between languages instantly</p>
+    <h3>Design & Utilities</h3>
+    <ul class="tool-list" id="toolListDesign">
+        <li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a>
+            <p>Create posters, presentations & graphics</p>
         </li>
-        <li>🤖 <a href="https://chat.openai.com" target="_blank">ChatGPT</a>
-            <p>Ask questions and learn interactively</p>
+        <li>🖌️ <a href="https://www.figma.com" target="_blank">Figma</a>
+            <p>UI/UX design and prototyping</p>
+        </li>
+        <li>🌈 <a href="https://coolors.co" target="_blank">Coolors</a>
+            <p>Generate color palettes</p>
+        </li>
+        <li>📱 <a href="https://www.qr-code-generator.com" target="_blank">QR Code Generator</a>
+            <p>Create QR codes instantly</p>
+        </li>
+        <li>📄 <a href="https://www.pdfescape.com" target="_blank">PDF Escape</a>
+            <p>Edit PDFs online</p>
         </li>
     </ul>
+
 </main>
 
 <script>
 function filterTools() {
     let input = document.getElementById('searchInput');
     let filter = input.value.toLowerCase();
-    let lists = [document.getElementById('toolList'), document.getElementById('toolListLearning')];
+    let lists = [document.getElementById('toolListProductivity'), document.getElementById('toolListDesign')];
 
     lists.forEach(list => {
         let items = list.getElementsByTagName('li');
@@ -67,3 +86,5 @@ function filterTools() {
 
 </body>
 </html>
+
+          
