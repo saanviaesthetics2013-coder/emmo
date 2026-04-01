@@ -1,105 +1,142 @@
+/* --- Body & Background --- */
 body {
     font-family: 'Georgia', 'Times New Roman', serif;
-    background-color: #fdf6e3;
-    color: #5b4636;
-    line-height: 1.6;
+    background-color: #ffffff; 
+    color: #5b4636; 
+    line-height: 1.8;
     margin: 0;
     padding: 0;
-    background-image: url('https://i.ibb.co/0F2bd0H/vintage-paper.jpg');
-    background-size: cover;
-    background-attachment: fixed;
+    font-size: 18px; 
+    transition: background 0.5s, color 0.5s;
 }
 
+/* --- Header --- */
 header {
-    background-color: rgba(216,195,165,0.9);
+    background-color: #d8c3a5;
     color: #3e2f1c;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 3em; 
     font-weight: bold;
-    padding: 25px 0;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+    padding: 40px 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-bottom: 2px solid #c0a77f;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+header:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
+/* --- Navbar --- */
 nav {
-    background-color: rgba(192,167,127,0.95);
-    padding: 12px 0;
+    background-color: #c0a77f; 
+    padding: 15px 0;
     text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 nav a {
     color: #3e2f1c;
     text-decoration: none;
-    margin: 0 15px;
+    margin: 0 20px;
     font-weight: bold;
-    font-family: 'Georgia', serif;
-    transition: color 0.3s;
+    font-size: 1.2em; 
+    transition: color 0.3s, text-shadow 0.3s;
 }
-nav a:hover { color: #8b5e3c; }
+nav a:hover { 
+    color: #8b5e3c; 
+    text-shadow: 0 0 6px #8b5e3c;
+}
 
+/* --- Main Content --- */
 main {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 40px;
+    font-size: 1.2em; 
 }
 
-h2 { text-align:center; margin-bottom:20px; }
-h3 { margin-top:30px; color:#4C3B2E; }
+/* --- Headings --- */
+h2 { 
+    text-align:center; 
+    margin-bottom:25px; 
+    font-size: 2.5em; 
+    text-shadow: 1px 1px 2px #d8c3a5;
+}
+h3 { 
+    margin-top:35px; 
+    color:#4C3B2E; 
+    font-size: 1.8em; 
+    text-shadow: 1px 1px 2px #e3d6c0;
+}
 
+/* --- Search Box --- */
 .search-box {
-    margin: 20px 0;
+    margin: 25px 0;
     text-align: center;
 }
 .search-box input {
     width: 80%;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 12px;
+    border-radius: 12px;
     border: 1px solid #ccc;
-    font-size: 1em;
+    font-size: 1.2em;
     background: #fff8f0;
     color: #5b4636;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.search-box input:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transform: scale(1.02);
 }
 
+/* --- Tool Cards --- */
 .tool-list {
     list-style: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 25px;
     justify-content: center;
 }
 
 .tool-list li {
-    background: rgba(247,241,227,0.9);
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    padding: 18px;
+    background: #f7f1e3;
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    padding: 25px;
     margin: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s, box-shadow 0.4s;
     text-align: center;
-    width: 250px;
+    width: 270px;
 }
 .tool-list li:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+    transform: translateY(-10px) rotateX(2deg);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
 }
 
 .tool-list li a {
     text-decoration: none;
     color: #5b4636;
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    transition: text-shadow 0.3s;
 }
-.tool-list li a:hover { color: #8b5e3c; }
+.tool-list li a:hover { 
+    text-shadow: 0 0 8px #8b5e3c; 
+}
 
 .tool-list li p {
-    font-size: 0.95em;
+    font-size: 1em;
     color: #6b5843;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
+/* --- Responsive --- */
 @media (max-width: 600px) {
     .tool-list { flex-direction: column; align-items: center; }
-    .tool-list li { width: 90%; }
+    .tool-list li { width: 95%; }
     .search-box input { width: 95%; }
 }
