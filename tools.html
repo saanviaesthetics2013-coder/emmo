@@ -5,42 +5,120 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tools - Saanvi's Website</title>
 <style>
-body { font-family: sans-serif; background: #fff; color: #5b4636; text-align: center; padding: 20px; }
+body { font-family: 'Segoe UI', sans-serif; background: #fffaf0; color: #5b4636; text-align: center; padding: 20px; }
+h2, h3 { margin-bottom: 15px; }
+
+nav a { margin: 0 15px; text-decoration: none; color: #5b4636; font-weight: bold; }
+nav a:hover { text-shadow: 0 0 8px #8b5e3c; }
 
 .tool-list { list-style: none; padding: 0; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-.tool-list li { background: #f7f1e3; border-radius: 16px; padding: 25px; width: 250px; transition: transform 0.4s, box-shadow 0.4s; box-shadow: 0 8px 15px rgba(0,0,0,0.15);}
-.tool-list li:hover { transform: translateY(-10px) rotateX(2deg); box-shadow: 0 15px 25px rgba(0,0,0,0.25); background: #fff4e0; }
-.tool-list li a { text-decoration: none; color: #5b4636; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 10px; }
-.tool-list li p { margin: 0; font-size: 1em; }
+.tool-list li {
+    background: #f7f1e3;
+    border-radius: 16px;
+    padding: 25px;
+    width: 250px;
+    transition: transform 0.4s, box-shadow 0.4s, background 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1), 0 0 10px #ffd8a6 inset;
+}
+.tool-list li:hover {
+    transform: translateY(-12px) rotateX(3deg);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25), 0 0 20px #ffc37f inset;
+    background: #fff5e0;
+}
+
+.tool-list li a { text-decoration: none; color: #5b4636; font-weight: bold; font-size: 1.2em; display: block; margin-bottom: 10px; transition: text-shadow 0.3s, color 0.3s; }
+.tool-list li a:hover { text-shadow: 0 0 12px #ffb85c, 0 0 20px #ffb85c; color: #a65b2b; }
+.tool-list li p { margin: 0; font-size: 1em; color: #6b5843; }
 
 .search-box { margin: 25px 0; }
-.search-box input { width: 80%; padding: 12px; border-radius: 12px; font-size: 1.2em; }
+.search-box input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    border: 1px solid #ccc;
+    background: #fff8f0;
+    color: #5b4636;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.search-box input:focus { box-shadow: 0 6px 18px rgba(0,0,0,0.2); transform: scale(1.02); }
+
+@media (max-width: 600px) {
+    .tool-list { flex-direction: column; align-items: center; }
+    .tool-list li { width: 95%; }
+    .search-box input { width: 95%; }
+}
 </style>
 </head>
 <body>
 
-<h2>Explore Useful Tools</h2>
+<header>
+    <h1>Saanvi's Tools</h1>
+</header>
 
-<div class="search-box">
-<input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
-</div>
+<nav>
+    <a href="index.html">Home</a>
+    <a href="tools.html">Tools</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-<h3>Productivity & Learning</h3>
-<ul class="tool-list" id="toolListProductivity">
-<li>🖩 <a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a><p>Quick online calculations</p></li>
-<li>📓 <a href="https://www.notion.so" target="_blank">Notion</a><p>Notes, tasks, projects</p></li>
-</ul>
+<main>
+    <h2>Explore Useful Tools</h2>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
+    </div>
 
-<h3>Design & Utilities</h3>
-<ul class="tool-list" id="toolListDesign">
-<li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a><p>Create posters, presentations & graphics</p></li>
-<li>🖌️ <a href="https://www.figma.com" target="_blank">Figma</a><p>UI/UX design and prototyping</p></li>
-</ul>
+    <!-- Section 1: Productivity & Learning -->
+    <h3>Productivity & Learning</h3>
+    <ul class="tool-list" id="toolListProductivity">
+        <li>🖩 <a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a>
+            <p>Quick online calculations</p></li>
+        <li>📓 <a href="https://www.notion.so" target="_blank">Notion</a>
+            <p>Notes, tasks, projects</p></li>
+    </ul>
+
+    <!-- Section 2: Design & Utilities -->
+    <h3>Design & Utilities</h3>
+    <ul class="tool-list" id="toolListDesign">
+        <li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a>
+            <p>Create posters, presentations & graphics</p></li>
+        <li>🖌️ <a href="https://www.figma.com" target="_blank">Figma</a>
+            <p>UI/UX design and prototyping</p></li>
+    </ul>
+
+    <!-- Section 3: Communication & Collaboration -->
+    <h3>Communication & Collaboration</h3>
+    <ul class="tool-list" id="toolListCommunication">
+        <li>💬 <a href="https://slack.com" target="_blank">Slack</a>
+            <p>Team communication tool</p></li>
+        <li>📧 <a href="https://mail.google.com" target="_blank">Gmail</a>
+            <p>Email & communication</p></li>
+    </ul>
+
+    <!-- Section 4: Reference & Miscellaneous -->
+    <h3>Reference & Miscellaneous</h3>
+    <ul class="tool-list" id="toolListReference">
+        <li>🌐 <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+            <p>Free online encyclopedia</p></li>
+        <li>📚 <a href="https://www.khanacademy.org" target="_blank">Khan Academy</a>
+            <p>Free learning tutorials</p></li>
+    </ul>
+
+</main>
 
 <script>
 function filterTools() {
     let input = document.getElementById('searchInput').value.toLowerCase();
-    [document.getElementById('toolListProductivity'), document.getElementById('toolListDesign')].forEach(list => {
+    [
+        'toolListProductivity',
+        'toolListDesign',
+        'toolListCommunication',
+        'toolListReference'
+    ].forEach(id => {
+        let list = document.getElementById(id);
         list.querySelectorAll('li').forEach(item => {
             let text = item.querySelector('a').textContent.toLowerCase();
             item.style.display = text.includes(input) ? '' : 'none';
@@ -51,3 +129,5 @@ function filterTools() {
 
 </body>
 </html>
+
+
