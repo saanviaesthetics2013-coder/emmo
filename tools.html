@@ -5,6 +5,81 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tools - Saanvi's Website</title>
 <link rel="stylesheet" href="style.css">
+<style>
+/* --- Tool Cards Virtual Hover --- */
+.tool-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.tool-list li {
+    background: #f7f1e3;
+    border-radius: 16px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    padding: 25px;
+    margin: 10px;
+    transition: transform 0.4s, box-shadow 0.4s, background 0.3s;
+    text-align: center;
+    width: 270px;
+}
+.tool-list li:hover {
+    transform: translateY(-10px) rotateX(2deg);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    background: #fff4e0;
+}
+
+.tool-list li a {
+    text-decoration: none;
+    color: #5b4636;
+    font-weight: bold;
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 10px;
+    transition: text-shadow 0.3s, color 0.3s;
+}
+.tool-list li a:hover {
+    text-shadow: 0 0 8px #8b5e3c;
+    color: #8b5e3c;
+}
+
+.tool-list li p {
+    font-size: 1em;
+    color: #6b5843;
+    margin-top: 8px;
+}
+
+/* --- Search Box Styling --- */
+.search-box {
+    margin: 25px 0;
+    text-align: center;
+}
+.search-box input {
+    width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    font-size: 1.2em;
+    background: #fff8f0;
+    color: #5b4636;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.search-box input:focus {
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+    .tool-list { flex-direction: column; align-items: center; }
+    .tool-list li { width: 95%; }
+    .search-box input { width: 95%; }
+}
+</style>
 </head>
 <body>
 
@@ -24,6 +99,7 @@
         <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
     </div>
 
+    <!-- Productivity & Learning -->
     <h3>Productivity & Learning</h3>
     <ul class="tool-list" id="toolListProductivity">
         <li>🖩 <a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a>
@@ -43,6 +119,7 @@
         </li>
     </ul>
 
+    <!-- Design & Utilities -->
     <h3>Design & Utilities</h3>
     <ul class="tool-list" id="toolListDesign">
         <li>🎨 <a href="https://www.canva.com" target="_blank">Canva</a>
@@ -68,7 +145,10 @@
 function filterTools() {
     let input = document.getElementById('searchInput');
     let filter = input.value.toLowerCase();
-    let lists = [document.getElementById('toolListProductivity'), document.getElementById('toolListDesign')];
+    let lists = [
+        document.getElementById('toolListProductivity'),
+        document.getElementById('toolListDesign')
+    ];
 
     lists.forEach(list => {
         let items = list.getElementsByTagName('li');
@@ -86,5 +166,5 @@ function filterTools() {
 
 </body>
 </html>
+   
 
-          
