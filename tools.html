@@ -1,175 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools - Saanvi's Website</title>
-<style>
-/* --- Body & Header --- */
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: #fffaf0;
-    color: #5b4636;
-    text-align: center;
-    padding: 20px;
-    margin: 0;
-    overflow-x: hidden;
-}
-h1 { margin-bottom: 20px; font-size: 2.5em; }
-h2 { margin-top: 40px; margin-bottom: 15px; font-size: 1.8em; }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMMO | Cyber Tools</title>
 
-/* --- Navigation --- */
-nav a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: #5b4636;
-    font-weight: bold;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-nav a:hover { text-shadow: 0 0 8px #8b5e3c; color: #a65b2b; }
-
-/* --- Tool Cards --- */
-.tool-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-}
-
-.tool-list li {
-    background: #f7f1e3;
-    border-radius: 16px;
-    padding: 25px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15), 0 0 15px #ffd8a6 inset;
-    transition: transform 0.5s, box-shadow 0.5s, background 0.3s;
-    position: relative;
-    animation: float 3s ease-in-out infinite;
-}
-
-.tool-list li:hover {
-    transform: translateY(-15px) rotateX(5deg) scale(1.05);
-    box-shadow: 0 20px 35px rgba(0,0,0,0.3), 0 0 25px #ffc37f inset;
-    background: #fff5e0;
-}
-
-/* Neon/Pastel glow on link hover */
-.tool-list li a {
-    text-decoration: none;
-    color: #5b4636;
-    font-weight: bold;
-    font-size: 1.2em;
-    display: block;
-    margin-bottom: 10px;
-    transition: text-shadow 0.3s, color 0.3s;
-}
-.tool-list li a:hover {
-    text-shadow: 0 0 12px #ffb85c, 0 0 25px #ffb85c;
-    color: #a65b2b;
-}
-
-.tool-list li p {
-    margin: 0;
-    font-size: 1em;
-    color: #6b5843;
-}
-
-/* Floating animation */
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-8px); }
-}
-
-/* --- Search Box --- */
-.search-box {
-    margin: 25px 0;
-}
-.search-box input {
-    width: 80%;
-    padding: 12px;
-    border-radius: 12px;
-    font-size: 1.2em;
-    border: 1px solid #ccc;
-    background: #fff8f0;
-    color: #5b4636;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: box-shadow 0.3s, transform 0.3s;
-}
-.search-box input:focus {
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    transform: scale(1.02);
-}
-
-/* --- Responsive --- */
-@media (max-width: 600px) {
-    .tool-list { flex-direction: column; align-items: center; }
-    .tool-list li { width: 95%; }
-    .search-box input { width: 95%; }
-}
-</style>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-    <h1>Saanvi's Tools</h1>
-</header>
+  <canvas id="matrix"></canvas>
 
-<nav>
-    <a href="index.html">Home</a>
-    <a href="tools.html">Tools</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-</nav>
+  <header class="navbar">
+    <div class="logo">⚡ EMMO</div>
 
-<main>
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="filterTools()">
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="tools.html">Tools</a>
+    </nav>
+
+    <div class="menu-btn" id="menuBtn">☰</div>
+  </header>
+
+  <section class="section glass">
+    <h2>🧰 Cyber Tools Hub</h2>
+    <p>Real working tools. Click open to use them ⚡</p>
+
+    <div class="tools-grid">
+
+      <div class="tool-card">
+        <h3>🔐 Password Strength</h3>
+        <p>Check password security instantly.</p>
+        <button class="tool-btn" onclick="openModal('passModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🔑 Password Generator</h3>
+        <p>Create strong random passwords.</p>
+        <button class="tool-btn" onclick="openModal('genPassModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🌐 IP Lookup</h3>
+        <p>Find IP location and ISP details.</p>
+        <button class="tool-btn" onclick="openModal('ipModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>📡 HTTPS Website Scanner</h3>
+        <p>Check if website is secure or not.</p>
+        <button class="tool-btn" onclick="openModal('scanModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🔒 Encrypt / Decrypt</h3>
+        <p>Encrypt secret messages with key.</p>
+        <button class="tool-btn" onclick="openModal('encModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🧾 Base64 Encoder</h3>
+        <p>Encode or decode Base64 text.</p>
+        <button class="tool-btn" onclick="openModal('baseModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🔍 SHA-256 Hash</h3>
+        <p>Generate secure hash from text.</p>
+        <button class="tool-btn" onclick="openModal('hashModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>📱 QR Generator</h3>
+        <p>Create QR code from any text.</p>
+        <button class="tool-btn" onclick="openModal('qrModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>⏱ Stopwatch</h3>
+        <p>Working stopwatch tool.</p>
+        <button class="tool-btn" onclick="openModal('stopModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>⏳ Timer</h3>
+        <p>Countdown timer tool.</p>
+        <button class="tool-btn" onclick="openModal('timerModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🧠 AI Predictor</h3>
+        <p>Random AI future prediction.</p>
+        <button class="tool-btn" onclick="openModal('aiModal')">Open</button>
+      </div>
+
+      <div class="tool-card">
+        <h3>🎯 Cyber Tips</h3>
+        <p>Generate cybersecurity tips instantly.</p>
+        <button class="tool-btn" onclick="showTip()">Generate</button>
+      </div>
+
     </div>
+  </section>
 
-    <!-- Section 1: Productivity & Learning -->
-    <h2>Productivity & Learning</h2>
-    <ul class="tool-list" id="section1">
-        <li><a href="https://www.google.com/search?q=calculator" target="_blank">Calculator</a><p>Quick online calculations</p></li>
-        <li><a href="https://www.notion.so" target="_blank">Notion</a><p>Notes and projects</p></li>
-    </ul>
+  <!-- MODALS (Same as before) -->
 
-    <!-- Section 2: Design & Utilities -->
-    <h2>Design & Utilities</h2>
-    <ul class="tool-list" id="section2">
-        <li><a href="https://www.canva.com" target="_blank">Canva</a><p>Design graphics and presentations</p></li>
-        <li><a href="https://www.figma.com" target="_blank">Figma</a><p>UI/UX design tool</p></li>
-    </ul>
+  <!-- Password Strength -->
+  <div class="modal" id="passModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('passModal')">✖</span>
+      <h2>🔐 Password Strength Checker</h2>
+      <input type="text" id="passwordInput" placeholder="Enter password..." />
+      <button class="btn" onclick="checkPassword()">Check</button>
+      <p id="passResult"></p>
+    </div>
+  </div>
 
-    <!-- Section 3: Communication & Collaboration -->
-    <h2>Communication & Collaboration</h2>
-    <ul class="tool-list" id="section3">
-        <li><a href="https://slack.com" target="_blank">Slack</a><p>Team communication</p></li>
-        <li><a href="https://mail.google.com" target="_blank">Gmail</a><p>Email platform</p></li>
-    </ul>
+  <!-- Password Generator -->
+  <div class="modal" id="genPassModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('genPassModal')">✖</span>
+      <h2>🔑 Password Generator</h2>
+      <input type="number" id="passLen" placeholder="Length (example 12)" />
+      <button class="btn" onclick="generatePassword()">Generate</button>
+      <textarea id="genPassOut" readonly></textarea>
+      <button class="btn-outline" onclick="copyText('genPassOut')">Copy 📋</button>
+    </div>
+  </div>
 
-    <!-- Section 4: Reference & Miscellaneous -->
-    <h2>Reference & Miscellaneous</h2>
-    <ul class="tool-list" id="section4">
-        <li><a href="https://www.wikipedia.org" target="_blank">Wikipedia</a><p>Online encyclopedia</p></li>
-        <li><a href="https://www.khanacademy.org" target="_blank">Khan Academy</a><p>Learning tutorials</p></li>
-    </ul>
+  <!-- IP Lookup -->
+  <div class="modal" id="ipModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('ipModal')">✖</span>
+      <h2>🌐 IP Lookup</h2>
+      <input type="text" id="ipInput" placeholder="Enter IP (example: 8.8.8.8)" />
+      <button class="btn" onclick="lookupIP()">Lookup</button>
+      <pre id="ipResult"></pre>
+    </div>
+  </div>
 
-</main>
+  <!-- HTTPS Scanner -->
+  <div class="modal" id="scanModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('scanModal')">✖</span>
+      <h2>📡 HTTPS Website Scanner</h2>
+      <input type="text" id="scanInput" placeholder="Enter URL (https://example.com)" />
+      <button class="btn" onclick="scanWebsite()">Scan</button>
+      <p id="scanResult"></p>
+    </div>
+  </div>
 
-<script>
-function filterTools() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    ['section1','section2','section3','section4'].forEach(id => {
-        document.getElementById(id).querySelectorAll('li').forEach(li => {
-            let name = li.querySelector('a').textContent.toLowerCase();
-            li.style.display = name.includes(input) ? '' : 'none';
-        });
-    });
-}
-</script>
+  <!-- Encrypt/Decrypt -->
+  <div class="modal" id="encModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('encModal')">✖</span>
+      <h2>🔒 Encrypt / Decrypt</h2>
 
+      <textarea id="encText" placeholder="Enter message..."></textarea>
+      <input type="text" id="encKey" placeholder="Enter secret key..." />
+
+      <button class="btn" onclick="encryptText()">Encrypt</button>
+      <button class="btn-outline" onclick="decryptText()">Decrypt</button>
+
+      <textarea id="encOutput" readonly placeholder="Output will appear here..."></textarea>
+      <button class="btn-outline" onclick="copyText('encOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- Base64 -->
+  <div class="modal" id="baseModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('baseModal')">✖</span>
+      <h2>🧾 Base64 Encoder / Decoder</h2>
+
+      <textarea id="baseInput" placeholder="Enter text..."></textarea>
+      <button class="btn" onclick="encodeBase64()">Encode</button>
+      <button class="btn-outline" onclick="decodeBase64()">Decode</button>
+
+      <textarea id="baseOutput" readonly placeholder="Result..."></textarea>
+      <button class="btn-outline" onclick="copyText('baseOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- Hash -->
+  <div class="modal" id="hashModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('hashModal')">✖</span>
+      <h2>🔍 SHA-256 Hash Generator</h2>
+
+      <textarea id="hashInput" placeholder="Enter text..."></textarea>
+      <button class="btn" onclick="generateHash()">Generate</button>
+
+      <textarea id="hashOutput" readonly placeholder="Hash output..."></textarea>
+      <button class="btn-outline" onclick="copyText('hashOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- QR -->
+  <div class="modal" id="qrModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('qrModal')">✖</span>
+      <h2>📱 QR Code Generator</h2>
+
+      <input type="text" id="qrInput" placeholder="Enter URL or text..." />
+      <button class="btn" onclick="generateQR()">Generate</button>
+
+      <div class="qr-box">
+        <img id="qrImage" alt="QR will appear here">
+      </div>
+    </div>
+  </div>
+
+  <!-- Stopwatch -->
+  <div class="modal" id="stopModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('stopModal')">✖</span>
+      <h2>⏱ Stopwatch</h2>
+
+      <h3 id="stopwatchDisplay">00:00:00</h3>
+
+      <button class="btn" onclick="startStopwatch()">Start</button>
+      <button class="btn-outline" onclick="stopStopwatch()">Stop</button>
+      <button class="btn-outline" onclick="resetStopwatch()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="modal" id="timerModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('timerModal')">✖</span>
+      <h2>⏳ Countdown Timer</h2>
+
+      <input type="number" id="timerSeconds" placeholder="Enter seconds..." />
+      <button class="btn" onclick="startTimer()">Start</button>
+
+      <h3 id="timerDisplay">00</h3>
+    </div>
+  </div>
+
+  <!-- AI Predictor -->
+  <div class="modal" id="aiModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('aiModal')">✖</span>
+      <h2>🧠 AI Future Predictor</h2>
+      <button class="btn" onclick="aiPredict()">Predict</button>
+      <p id="aiResult"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
