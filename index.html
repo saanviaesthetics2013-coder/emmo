@@ -3,143 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robots + AI | TechNova</title>
-  <link rel="stylesheet" href="assets/style.css" />
+
+  <title>EMMO | Cyber AI Matrix Tools</title>
+  <meta name="description" content="EMMO - Futuristic Cybersecurity, AI & Robotics Portfolio with Real Tools." />
+
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712027.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- NAVBAR -->
-  <header class="navbar">
-    <div class="container nav-inner">
-      <div class="logo">
-        ⚡ <span>TechNova</span>
-      </div>
+  <!-- Matrix Background -->
+  <canvas id="matrix"></canvas>
 
-      <nav class="nav-links">
-        <a href="index.html">🏠 Home</a>
-        <a href="posts.html">📰 Posts</a>
-        <a href="tools.html">🧰 Tools</a>
-        <a href="about.html">👤 About</a>
-        <a href="contact.html">📩 Contact</a>
-      </nav>
-
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="posts.html">📰 Back</a>
-      </div>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
-  </header>
-
-  <section class="container post-layout">
-
-    <!-- MAIN POST -->
-    <article class="post-article reveal">
-      <h1>🤖 Robots + AI: The Rise of Smart Machines</h1>
-
-      <div class="post-info">
-        <span>👤 TechNova</span>
-        <span>📅 2026-04-02</span>
-        <span>⏳ 5 min read</span>
-        <span class="tag">Robotics</span>
-      </div>
-
-      <p>
-        Robots are no longer just machines that follow commands. With Artificial Intelligence,
-        robots are becoming smarter and more independent.
-      </p>
-
-      <h2>🧠 1. How Robots Become Intelligent</h2>
-      <p>
-        Robots use sensors to collect data from the environment. AI processes that data and decides
-        what action should be taken.
-      </p>
-
-      <h2>📡 2. Sensors: The Eyes and Ears of Robots</h2>
-      <p>
-        Common robot sensors include:
-      </p>
-      <p>
-        👁️ Camera sensors (vision) <br>
-        🎤 Microphones (sound detection) <br>
-        🌡️ Temperature sensors <br>
-        📍 GPS sensors <br>
-        🤚 Touch sensors
-      </p>
-
-      <h2>⚡ 3. Robots in Real Life</h2>
-      <p>
-        Robots are already used in:
-      </p>
-      <p>
-        🏭 Factories (automation) <br>
-        🚗 Self-driving cars <br>
-        🏥 Hospitals (surgery assistance) <br>
-        🏠 Smart homes (cleaning robots) <br>
-        🚀 Space exploration
-      </p>
-
-      <h2>🌌 4. Future of Robotics</h2>
-      <p>
-        In the future, robots may become personal assistants. They may help elderly people,
-        manage smart cities, and perform dangerous jobs like disaster rescue.
-      </p>
-
-      <h2>🛡️ 5. Risks of Robots + AI</h2>
-      <p>
-        If robots become too intelligent, cybersecurity will become critical. Hackers could hack robots
-        and use them for harmful purposes. This is why AI safety is a serious topic.
-      </p>
-
-      <h2>🚀 Final Thoughts</h2>
-      <p>
-        Robots powered by AI will be one of the biggest inventions of human history.
-        The future is not coming — it is already here.
-      </p>
-
-      <div style="margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;">
-        <button class="btn btn-ghost" data-like="robots-ai">🤍 Like</button>
-        <button class="btn btn-ghost" data-bookmark="robots-ai">📌 Save</button>
-        <button class="btn btn-primary" onclick="sharePost()">📤 Share</button>
-      </div>
-    </article>
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar reveal">
-      <div class="side-card">
-        <h3>🤖 Robotics Tip</h3>
-        <p style="color:var(--muted); line-height:1.6;">
-          Robotics is not only hardware. AI is the brain, sensors are the eyes, and code is the language.
-        </p>
-      </div>
-
-      <div class="side-card">
-        <h3>🔥 Recommended</h3>
-        <a href="post-cybersecurity-basics.html">🔒 Cybersecurity Basics</a>
-        <a href="post-ai-future.html">🧠 AI in the Future</a>
-      </div>
-
-      <div class="side-card">
-        <h3>🧰 Useful Tool</h3>
-        <a href="tools.html">🔢 Text to Binary</a>
-      </div>
-    </aside>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 <strong>TechNova</strong> ⚡ | Robots are the future workforce.</p>
-    </div>
-  </footer>
-
-  <!-- SCROLL TOP -->
-  <div class="scroll-top" id="scrollTopBtn">
-    <button class="btn btn-primary">⬆ Top</button>
+    <p>Loading Cyber Matrix...</p>
   </div>
 
-  <script src="assets/script.js"></script>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">⚡ EMMO</div>
+
+    <nav id="navMenu">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#tools">Tools</a>
+      <a href="#terminal">Terminal</a>
+      <a href="#future">Future</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="menu-btn" id="menuBtn">☰</div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content" data-aos="fade-up">
+      <h1>🌌 Welcome to <span>EMMO</span></h1>
+      <p>
+        A futuristic world of <b>Cybersecurity</b> 🛡, <b>AI</b> 🤖, and <b>Robotics</b> ⚙.
+        Explore real cyber tools and advanced UI experience.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#tools" class="btn">Open Tools ⚙️</a>
+        <a href="#terminal" class="btn-outline">Terminal 💻</a>
+      </div>
+    </div>
+
+    <div class="hero-glow"></div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section glass">
+    <h2 data-aos="fade-right">👨‍💻 About Me</h2>
+    <p data-aos="fade-up">
+      Hi, I am <b>EMMO</b>. I love creating futuristic projects based on Cybersecurity,
+      Artificial Intelligence and Robotics. My dream is to build powerful tools and secure the future 🚀.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="section glass">
+    <h2 data-aos="fade-right">🔥 Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card" data-aos="zoom-in">
+        <h3>🛡 Cybersecurity</h3>
+        <p>Ethical hacking, security analysis, networking basics.</p>
+      </div>
+
+      <div class="skill-card" data-aos="zoom-in">
+        <h3>🤖 Artificial Intelligence</h3>
+        <p>Machine learning concepts, AI tools, future planning.</p>
+      </div>
+
+      <div class="skill-card" data-aos="zoom-in">
+        <h3>🌐 Web Development</h3>
+        <p>HTML, CSS, JavaScript, UI/UX, responsive layouts.</p>
+      </div>
+
+      <div class="skill-card" data-aos="zoom-in">
+        <h3>⚙ Robotics</h3>
+        <p>Automation, sensors, robotics future concepts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section id="tools" class="section glass">
+    <h2 data-aos="fade-right">🧰 Cyber Tools Hub</h2>
+    <p data-aos="fade-up">These tools are real and working. Click Open to use them ⚡</p>
+
+    <div class="tools-grid">
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🔐 Password Strength</h3>
+        <p>Check password security instantly.</p>
+        <button class="tool-btn" onclick="openModal('passModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🔑 Password Generator</h3>
+        <p>Create strong random passwords.</p>
+        <button class="tool-btn" onclick="openModal('genPassModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🌐 IP Lookup</h3>
+        <p>Find IP location and ISP details.</p>
+        <button class="tool-btn" onclick="openModal('ipModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>📡 HTTPS Website Scanner</h3>
+        <p>Check if website is secure or not.</p>
+        <button class="tool-btn" onclick="openModal('scanModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🔒 Encrypt / Decrypt</h3>
+        <p>Encrypt secret messages with key.</p>
+        <button class="tool-btn" onclick="openModal('encModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🧾 Base64 Encoder</h3>
+        <p>Encode or decode text in Base64.</p>
+        <button class="tool-btn" onclick="openModal('baseModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🧠 AI Future Predictor</h3>
+        <p>Predict AI future randomly.</p>
+        <button class="tool-btn" onclick="openModal('aiModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🔍 SHA-256 Hash Generator</h3>
+        <p>Generate hash for any text.</p>
+        <button class="tool-btn" onclick="openModal('hashModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>📱 QR Code Generator</h3>
+        <p>Create QR code from text/URL.</p>
+        <button class="tool-btn" onclick="openModal('qrModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>⏱ Stopwatch</h3>
+        <p>Simple working stopwatch.</p>
+        <button class="tool-btn" onclick="openModal('stopModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>⏳ Countdown Timer</h3>
+        <p>Start timer in seconds.</p>
+        <button class="tool-btn" onclick="openModal('timerModal')">Open</button>
+      </div>
+
+      <div class="tool-card" data-aos="flip-left">
+        <h3>🎯 Random Cyber Tip</h3>
+        <p>Get instant cybersecurity advice.</p>
+        <button class="tool-btn" onclick="showTip()">Generate</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Terminal -->
+  <section id="terminal" class="section glass">
+    <h2 data-aos="fade-right">💻 Cyber Terminal</h2>
+    <p data-aos="fade-up">Type commands like: <b>help</b>, <b>about</b>, <b>tools</b>, <b>hack</b></p>
+
+    <div class="terminal-box" data-aos="zoom-in">
+      <div class="terminal-output" id="terminalOutput">
+        <p>⚡ Welcome to EMMO Terminal...</p>
+      </div>
+
+      <div class="terminal-input-area">
+        <span class="terminal-prefix">EMMO@Cyber:~$</span>
+        <input type="text" id="terminalInput" placeholder="Type command..." />
+        <button class="btn terminal-btn" onclick="runCommand()">Run</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future -->
+  <section id="future" class="section glass">
+    <h2 data-aos="fade-right">🌌 AI & Robots in Future</h2>
+    <p data-aos="fade-up">
+      AI will dominate the future by improving cybersecurity, healthcare, education, and automation.
+      Robots will become common assistants and even space explorers 🚀.
+    </p>
+
+    <div class="future-box" data-aos="zoom-in">
+      <h3>⚡ Prediction Generator</h3>
+      <p id="predictionText">AI + Robots will become as common as smartphones.</p>
+      <button class="btn" onclick="generatePrediction()">Generate 🔮</button>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section glass">
+    <h2 data-aos="fade-right">📩 Contact Me</h2>
+
+    <div class="contact-box" data-aos="fade-up">
+      <p><b>Email:</b> example@gmail.com</p>
+      <p><b>GitHub:</b> <a href="https://github.com/saanviaesthetics2013-coder" target="_blank">My Profile</a></p>
+      <p><b>Location:</b> India 🇮🇳</p>
+
+      <button class="btn" onclick="openModal('msgModal')">Send Message 🚀</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 EMMO | Matrix Cyber AI Tools Portfolio ⚡</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button id="topBtn">⬆</button>
+
+  <!-- ===================== MODALS ===================== -->
+
+  <!-- Password Strength -->
+  <div class="modal" id="passModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('passModal')">✖</span>
+      <h2>🔐 Password Strength Checker</h2>
+      <input type="text" id="passwordInput" placeholder="Enter password..." />
+      <button class="btn" onclick="checkPassword()">Check</button>
+      <p id="passResult"></p>
+    </div>
+  </div>
+
+  <!-- Password Generator -->
+  <div class="modal" id="genPassModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('genPassModal')">✖</span>
+      <h2>🔑 Password Generator</h2>
+      <input type="number" id="passLen" placeholder="Length (example 12)" />
+      <button class="btn" onclick="generatePassword()">Generate</button>
+      <textarea id="genPassOut" readonly></textarea>
+      <button class="btn-outline" onclick="copyText('genPassOut')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- IP Lookup -->
+  <div class="modal" id="ipModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('ipModal')">✖</span>
+      <h2>🌐 IP Lookup</h2>
+      <input type="text" id="ipInput" placeholder="Enter IP (example: 8.8.8.8)" />
+      <button class="btn" onclick="lookupIP()">Lookup</button>
+      <pre id="ipResult"></pre>
+    </div>
+  </div>
+
+  <!-- HTTPS Scanner -->
+  <div class="modal" id="scanModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('scanModal')">✖</span>
+      <h2>📡 HTTPS Website Scanner</h2>
+      <input type="text" id="scanInput" placeholder="Enter URL (https://example.com)" />
+      <button class="btn" onclick="scanWebsite()">Scan</button>
+      <p id="scanResult"></p>
+    </div>
+  </div>
+
+  <!-- Encrypt Decrypt -->
+  <div class="modal" id="encModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('encModal')">✖</span>
+      <h2>🔒 Encrypt / Decrypt</h2>
+
+      <textarea id="encText" placeholder="Enter message..."></textarea>
+      <input type="text" id="encKey" placeholder="Enter secret key..." />
+
+      <button class="btn" onclick="encryptText()">Encrypt</button>
+      <button class="btn-outline" onclick="decryptText()">Decrypt</button>
+
+      <textarea id="encOutput" readonly placeholder="Output will appear here..."></textarea>
+      <button class="btn-outline" onclick="copyText('encOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- Base64 -->
+  <div class="modal" id="baseModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('baseModal')">✖</span>
+      <h2>🧾 Base64 Encoder / Decoder</h2>
+
+      <textarea id="baseInput" placeholder="Enter text..."></textarea>
+      <button class="btn" onclick="encodeBase64()">Encode</button>
+      <button class="btn-outline" onclick="decodeBase64()">Decode</button>
+
+      <textarea id="baseOutput" readonly placeholder="Result..."></textarea>
+      <button class="btn-outline" onclick="copyText('baseOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- AI Predictor -->
+  <div class="modal" id="aiModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('aiModal')">✖</span>
+      <h2>🧠 AI Future Predictor</h2>
+      <button class="btn" onclick="aiPredict()">Predict</button>
+      <p id="aiResult"></p>
+    </div>
+  </div>
+
+  <!-- Hash Generator -->
+  <div class="modal" id="hashModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('hashModal')">✖</span>
+      <h2>🔍 SHA-256 Hash Generator</h2>
+
+      <textarea id="hashInput" placeholder="Enter text..."></textarea>
+      <button class="btn" onclick="generateHash()">Generate</button>
+
+      <textarea id="hashOutput" readonly placeholder="Hash output..."></textarea>
+      <button class="btn-outline" onclick="copyText('hashOutput')">Copy 📋</button>
+    </div>
+  </div>
+
+  <!-- QR Generator -->
+  <div class="modal" id="qrModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('qrModal')">✖</span>
+      <h2>📱 QR Code Generator</h2>
+
+      <input type="text" id="qrInput" placeholder="Enter URL or text..." />
+      <button class="btn" onclick="generateQR()">Generate QR</button>
+
+      <div class="qr-box">
+        <img id="qrImage" alt="QR will appear here">
+      </div>
+    </div>
+  </div>
+
+  <!-- Stopwatch -->
+  <div class="modal" id="stopModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('stopModal')">✖</span>
+      <h2>⏱ Stopwatch</h2>
+
+      <h3 id="stopwatchDisplay">00:00:00</h3>
+
+      <button class="btn" onclick="startStopwatch()">Start</button>
+      <button class="btn-outline" onclick="stopStopwatch()">Stop</button>
+      <button class="btn-outline" onclick="resetStopwatch()">Reset</button>
+    </div>
+  </div>
+
+  <!-- Timer -->
+  <div class="modal" id="timerModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('timerModal')">✖</span>
+      <h2>⏳ Countdown Timer</h2>
+
+      <input type="number" id="timerSeconds" placeholder="Enter seconds..." />
+      <button class="btn" onclick="startTimer()">Start</button>
+
+      <h3 id="timerDisplay">00</h3>
+    </div>
+  </div>
+
+  <!-- Message -->
+  <div class="modal" id="msgModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('msgModal')">✖</span>
+      <h2>📩 Send Message (Demo)</h2>
+
+      <input type="text" id="nameMsg" placeholder="Your Name" />
+      <input type="email" id="emailMsg" placeholder="Your Email" />
+      <textarea id="textMsg" placeholder="Write your message..."></textarea>
+
+      <button class="btn" onclick="fakeSend()">Send 🚀</button>
+      <p id="msgResult"></p>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    initPostButtons("robots-ai");
+    AOS.init({ duration: 1000 });
   </script>
 
 </body>
